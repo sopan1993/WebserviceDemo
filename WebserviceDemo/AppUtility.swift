@@ -24,7 +24,7 @@ extension UIButton {
             return self.imageView?.contentMode.rawValue ?? 0
         }
         set {
-            if let mode = UIViewContentMode(rawValue: newValue),
+            if let mode = UIView.ContentMode(rawValue: newValue),
                 self.imageView != nil {
                 self.imageView?.contentMode = mode
             }
@@ -395,7 +395,7 @@ class AppUtility: NSObject
     {
         let paddingView : UIView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 20))
         tf.leftView = paddingView
-        tf.leftViewMode = UITextFieldViewMode.always
+        tf.leftViewMode = UITextField.ViewMode.always
     }
     
     class  func isValidEmail(testStr:String) -> Bool
@@ -436,9 +436,9 @@ class AppUtility: NSObject
         attributedStyle.alignment = NSTextAlignment.center
         let myAttributedString = NSMutableAttributedString (string: myString)
         
-        let myAttributes :Dictionary = [NSAttributedStringKey.paragraphStyle : attributedStyle,
-                                        NSAttributedStringKey.font : font,
-                                        NSAttributedStringKey.foregroundColor : strColor]
+        let myAttributes :Dictionary = [NSAttributedString.Key.paragraphStyle : attributedStyle,
+                                        NSAttributedString.Key.font : font,
+                                        NSAttributedString.Key.foregroundColor : strColor]
         myAttributedString.addAttributes(myAttributes, range: NSMakeRange(0, myAttributedString.length))
         return myAttributedString;
     }
@@ -647,9 +647,9 @@ class AppUtility: NSObject
     {
         //        if let topController = UIApplication.topViewController() {
         //            if(topController == viewController) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:
             { (UIAlertAction) in
         }))
         
@@ -658,9 +658,9 @@ class AppUtility: NSObject
     
     class func showAlertWithTitle(title : String , message: String , viewController:UIViewController ,OkButtonMethod:@escaping (Bool) -> (Void))
     {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:
             { (UIAlertAction) in
                 
                 OkButtonMethod(true)
@@ -672,14 +672,14 @@ class AppUtility: NSObject
     
     class func showAlertToSelectYESNOWithTitle(title : String , message: String , viewController:UIViewController ,OkButtonMethod:@escaping (Bool) -> (Void))
     {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
-        alert.addAction(UIAlertAction(title: "YES", style: UIAlertActionStyle.default, handler:
+        alert.addAction(UIAlertAction(title: "YES", style: UIAlertAction.Style.default, handler:
             { (UIAlertAction) in
                 
                 OkButtonMethod(true)
         }))
-        alert.addAction(UIAlertAction(title: "NO", style: UIAlertActionStyle.default, handler:
+        alert.addAction(UIAlertAction(title: "NO", style: UIAlertAction.Style.default, handler:
             { (UIAlertAction) in
                 
                 OkButtonMethod(false)
@@ -746,7 +746,7 @@ class AppUtility: NSObject
         loadingView.layer.cornerRadius = 10
         
         activityIndicator.frame = CGRect(x: 0, y: 0, width: 40.0, height: 40.0)
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        activityIndicator.style = UIActivityIndicatorView.Style.whiteLarge
         activityIndicator.center = CGPoint(x: loadingView.frame.size.width / 2, y: loadingView.frame.size.height / 2)
         
         loadingView.addSubview(activityIndicator)
@@ -772,7 +772,7 @@ class AppUtility: NSObject
         let imageID: String? = (imageNameStr as String)+".jpg"
         let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageID!)
         print(paths)
-        let imageData = UIImageJPEGRepresentation(image!, 0.7)
+        let imageData = image!.jpegData(compressionQuality: 0.7) //UIImageJPEGRepresentation(image!, 0.7)
         fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
         return AppUtility.getImage(imageName: imageID!)
     }
@@ -822,9 +822,9 @@ class AppUtility: NSObject
                     trimmedForReadMore = String(trimmedForReadMore.filter { !"\n".contains($0) })
                     
                     
-                    let answerAttributed = NSMutableAttributedString(string: trimmedForReadMore, attributes: [NSAttributedStringKey.font: descriptionLabel.font])
+                    let answerAttributed = NSMutableAttributedString(string: trimmedForReadMore, attributes: [NSAttributedString.Key.font: descriptionLabel.font])
                     
-                    let readMoreAttributed = NSMutableAttributedString(string: readMoreText, attributes: [NSAttributedStringKey.font: Constant.FONT_REGULAR_12!, NSAttributedStringKey.foregroundColor: Constant.BUTTON_PINK_COLOR])
+                    let readMoreAttributed = NSMutableAttributedString(string: readMoreText, attributes: [NSAttributedString.Key.font: Constant.FONT_REGULAR_12!, NSAttributedString.Key.foregroundColor: Constant.BUTTON_PINK_COLOR])
                     answerAttributed.append(readMoreAttributed)
                     descriptionLabel.attributedText = answerAttributed
                 }
@@ -865,7 +865,7 @@ class AppUtility: NSObject
         toolBar.isUserInteractionEnabled = true
         toolBar.sizeToFit()
         toolBar.items = [
-            UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: viewController, action:selectorMethod)]
+            UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: viewController, action:selectorMethod)]
         return toolBar
         
     }
@@ -903,8 +903,8 @@ class AppUtility: NSObject
         }
         
         let attributedString = NSAttributedString(string: "\(message)", attributes: [
-            NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 17),
-            NSAttributedStringKey.foregroundColor: fontColor
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17),
+            NSAttributedString.Key.foregroundColor: fontColor
             ])
         
         DispatchQueue.main.async(execute: {() -> Void in
@@ -926,6 +926,39 @@ class AppUtility: NSObject
         })
     }
     
+  class  func showBottomSnackBarAlertNew(title : NSString , message : NSString,viewController:UIViewController)
+    {
+        let attributedString = NSAttributedString(string: "\(message)", attributes: [
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17),
+            NSAttributedString.Key.foregroundColor: UIColor.white
+            ])
+        
+        DispatchQueue.main.async(execute: {() -> Void in
+            let alert = UIAlertController(title: nil , message: "", preferredStyle: .actionSheet)
+            alert.setValue(attributedString, forKey: "attributedMessage")
+            
+            
+            for vi in  (((alert.view.subviews.first)?.subviews.first)?.subviews
+                )!
+            {
+                vi.backgroundColor = UIColor.red
+                
+            }
+            
+            viewController.present(alert, animated: true, completion: {
+                print("completion block")
+                
+                
+            })
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+                
+                viewController.dismiss(animated: true, completion: nil)
+                
+                
+            };
+        })
+    }
     
     class func createTabbarController() {
         

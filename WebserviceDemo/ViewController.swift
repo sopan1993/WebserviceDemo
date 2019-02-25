@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -227,41 +228,5 @@ class ViewController: UIViewController {
  */
 
 
-/*
- class func showActivityIndicator(uiView: UIView)
- {
- DispatchQueue.main.async {
- container.frame = uiView.frame
- container.center = uiView.center
- // container.backgroundColor = UIColor.
- loadingView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
- loadingView.center = uiView.center
- loadingView.backgroundColor = UIColor.init(red: 68.0/255, green: 68.0/255, blue: 68.0/255, alpha: 0.7)
- loadingView.clipsToBounds = true
- loadingView.layer.cornerRadius = 10
- 
- activityIndicator.frame = CGRect(x: 0, y: 0, width: 40.0, height: 40.0)
- activityIndicator.style = UIActivityIndicatorView.Style.whiteLarge
- activityIndicator.center = CGPoint(x: loadingView.frame.size.width / 2, y: loadingView.frame.size.height / 2 - 18)
- label.frame = CGRect(x: 0, y: 0, width: 80.0, height: 21.0)
- label.center = CGPoint(x: loadingView.frame.size.width / 2, y: loadingView.frame.size.height - 25)
- label.text = "Loading..."
- label.textColor = .white
- label.textAlignment = .center
- loadingView.addSubview(label)
- loadingView.addSubview(activityIndicator)
- container.addSubview(loadingView)
- uiView.addSubview(container)
- uiView.isUserInteractionEnabled = false
- activityIndicator.startAnimating()
- }
- }
- 
- class func hideActivityIndicator(uiView: UIView)
- {
- DispatchQueue.main.async {
- activityIndicator.stopAnimating()
- uiView.isUserInteractionEnabled = true
- container.removeFromSuperview()
- }
- }*/
+
+

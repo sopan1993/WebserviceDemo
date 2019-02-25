@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D207600222241032006ECF6B /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D207600022241032006ECF6B /* AppUtility.swift */; };
+		D207600322241032006ECF6B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D207600122241032006ECF6B /* Constant.swift */; };
 		D247F27C221ED92500A62AA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247F27B221ED92500A62AA4 /* AppDelegate.swift */; };
 		D247F27E221ED92500A62AA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247F27D221ED92500A62AA4 /* ViewController.swift */; };
 		D247F281221ED92500A62AA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D247F27F221ED92500A62AA4 /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D207600022241032006ECF6B /* AppUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
+		D207600122241032006ECF6B /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		D247F278221ED92500A62AA4 /* WebserviceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebserviceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D247F27B221ED92500A62AA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D247F27D221ED92500A62AA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 			children = (
 				D247F27B221ED92500A62AA4 /* AppDelegate.swift */,
 				D247F27D221ED92500A62AA4 /* ViewController.swift */,
+				D207600022241032006ECF6B /* AppUtility.swift */,
+				D207600122241032006ECF6B /* Constant.swift */,
 				D247F2AB221ED98100A62AA4 /* Reachability.h */,
 				D247F2AA221ED98100A62AA4 /* Reachability.swift */,
 				D247F2A9221ED98000A62AA4 /* WebHandlerNew.swift */,
@@ -266,8 +272,10 @@
 			files = (
 				D247F27E221ED92500A62AA4 /* ViewController.swift in Sources */,
 				D247F2AC221ED98100A62AA4 /* WebHandlerNew.swift in Sources */,
+				D207600222241032006ECF6B /* AppUtility.swift in Sources */,
 				D247F2AD221ED98100A62AA4 /* Reachability.swift in Sources */,
 				D247F27C221ED92500A62AA4 /* AppDelegate.swift in Sources */,
+				D207600322241032006ECF6B /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
