@@ -224,7 +224,7 @@ class ViewController: UIViewController {
  WebHandlerNew.showAlertWithTitle(title: "", message:WebHandlerNew.NoInternetConnection as NSString)
  }
  
- }
+}
  */
 
 
